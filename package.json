@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "build1": "ts-node ./src/index.ts",
+    "build": "ts-node ./src/build.ts"
+  },
+  "dependencies": {
+    "esbuild": "^0.13.7",
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "typescript": "^4.4.4"
+  },
+  "include": [
+    "src"
+  ],
+  "devDependencies": {
+    "@types/node": "^16.11.0",
+    "tslib": "^2.3.1"
+  }
+}
