@@ -53,6 +53,9 @@ const buildOptions: esbuild.BuildOptions = {
     "process.env.mode": JSON.stringify("c-env"),
   },
   // plugins: [demoPlugin()],
+  loader: {
+    '.png': 'file'
+  }
 };
 
 // main

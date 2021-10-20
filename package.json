@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build1": "ts-node ./src/index.ts",
-    "build": "ts-node ./scripts/build.ts"
+    "build": "ts-node ./scripts/build.ts",
+    "build1": "ts-node ./scripts/build-esm-bundle-noSplitting.ts"
   },
   "dependencies": {
     "esbuild": "^0.13.7",
