@@ -1,9 +1,9 @@
 import * as path from "path";
 import * as fs from "fs";
 import * as esbuild from "esbuild";
-import { json } from "stream/consumers";
 
-const str: string = "i love fe";
+const str: string = "i love esbuild";
+const CWD = process.cwd();
 
 const demoPlugin = () => {
   return {
@@ -27,8 +27,8 @@ const demoPlugin = () => {
 };
 
 const buildOptions: esbuild.BuildOptions = {
-  entryPoints: [path.resolve(__dirname, "./demos/ts-demo/index.ts")],
-  outdir: path.resolve(__dirname, "../dist"),
+  entryPoints: [path.resolve(CWD, "src/demos/ts-demo/index.ts")],
+  outdir: path.resolve(CWD, "dist"),
   bundle: true,
 
   banner: {
@@ -38,14 +38,21 @@ const buildOptions: esbuild.BuildOptions = {
     js: "// footer code",
   },
 
+  platform: "browser",
+  target: "es6",
+  format: "esm", // iife esm cjs
   sourcemap: "inline",
-  format: "iife",
+  
+  // optimization options
   minify: false,
   treeShaking: true,
+  splitting: false,
+
+  // define
   define: {
     "process.env.mode": JSON.stringify("c-env"),
   },
-  plugins: [demoPlugin()],
+  // plugins: [demoPlugin()],
 };
 
 // main
